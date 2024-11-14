@@ -6,8 +6,10 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
+require_once 'controllers/ProductController.php';
 
 // Require toàn bộ file Models
+require_once 'models/ProductModel.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -17,4 +19,9 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Dashboards
     '/'                 => (new DashboardController())->index(),
+
+
+    //Product
+    'list_product'=>(new ProductController())->productAll(),
+    'xoa-san-pham'=>(new ProductController())->delete(),
 };
