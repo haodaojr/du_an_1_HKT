@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Product</title>
+    <title>Danh sách sản phẩm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -51,7 +51,7 @@
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Người dùng</li>
+                                        <li class="breadcrumb-item active">Sản phẩm</li>
                                     </ol>
                                 </div>
 
@@ -66,7 +66,7 @@
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Danh sách sản phẩm</h4>
-                                    <a href= "?act=form_add_product" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm sản phẩm</a>
+                                    <a href= "?act=them-san-pham" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm sản phẩm</a>
                                 </div><!-- end card header -->
                                 <div class="card-body">
     <div class="live-preview">
@@ -88,14 +88,14 @@
                         <tr>
                             <td class="fw-medium"><?= $index + 1 ?></td>
                             <td><?= $product['product_name'] ?></td>
-                            <td><img src="<?= $product['product_img'] ?>" width="60px" height="50px" alt="Image Description"></td>
+                            <td><img src="./uploads/img/<?= $product['product_img'] ?>" width="60px" height="50px" alt="Image Description"></td>
                             <td><?= $product['product_price'] ?></td>
                             <td><?= $product['product_amount'] ?></td>
                             <td><?= $product['product_description'] ?></td>
                             <td>
                                 <div class="hstack gap-3 flex-wrap">
                                     <!-- <a href="?act=chi-tiet-san-pham&product_id=<?= $product['product_id'] ?>"><i class="ri-dashboard-2-line"></i></a> -->
-                                    <a href="?act=form-sua-san-pham&product_id=<?= $product['product_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                    <a href="?act=sua-san-pham&product_id=<?= $product['product_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                     <form action="?act=xoa-san-pham" method="POST" onsubmit="return confirm('Bạn có muốn xóa không?')">
                                         <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
                                         <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
