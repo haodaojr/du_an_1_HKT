@@ -1,5 +1,4 @@
 <?php 
-
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
@@ -23,5 +22,7 @@ match ($act) {
 
     //Product
     'list_product'=>(new ProductController())->productAll(),
+    'them-san-pham'=>(new ProductController())->addProduct(),
+    'sua-san-pham'=>(new ProductController())->editProduct(),
     'xoa-san-pham'=>(new ProductController())->delete(),
 };

@@ -53,9 +53,9 @@
                     <a class="nav-link menu-link" href="#">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
-                    <a class="nav-link menu-link" href="?act=list_product">
+                    <!-- <a class="nav-link menu-link" href="?act=list_product">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Products</span>
-                    </a>
+                    </a> -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
@@ -64,12 +64,12 @@
                     <div class="collapse menu-dropdown" id="sidebarDanhMuc">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="?act=list_product" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-nestable-list">
+                                <a href="?act=them-san-pham" class="nav-link" data-key="t-nestable-list">
                                     Thêm mới
                                 </a>
                             </li>
