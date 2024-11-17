@@ -6,9 +6,10 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/ProductController.php';
-
+require_once 'controllers/userControllers.php';
 // Require toàn bộ file Models
 require_once 'models/ProductModel.php';
+require_once 'models/userModel.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -25,4 +26,8 @@ match ($act) {
     'them-san-pham'=>(new ProductController())->addProduct(),
     'sua-san-pham'=>(new ProductController())->editProduct(),
     'xoa-san-pham'=>(new ProductController())->delete(),
+
+    //user
+    'dangky'=>(new userController())->insert2(),
+    'dangnhap'=>(new userController())->dangnhap()
 };
