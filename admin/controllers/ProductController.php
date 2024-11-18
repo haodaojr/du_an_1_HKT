@@ -5,6 +5,9 @@ class ProductController {
     public function __construct() {
         $this->ProductModel = new ProductModel();
     }
+    public function __destruct(){
+        $this->ProductModel=null;
+    }
 
     public function productAll() {
         $products = $this->ProductModel->getAll();
