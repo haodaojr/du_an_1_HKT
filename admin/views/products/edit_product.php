@@ -74,10 +74,11 @@
                                                     <div class="col-md-6">  
                                                         <div class="mb-3">  
                                                             <label for="categoryIdInput" class="form-label">Danh Mục</label>  
-                                                            <select id="categoryIdInput" class="form-select" name="category_id">  
-                                                                <option disabled <?= empty($product['category_id']) ? 'selected' : '' ?>>Chọn Danh Mục</option>  
-                                                                <option value="1" <?= (isset($product['category_id']) && $product['category_id'] === 1) ? 'selected' : '' ?>>Danh Mục 1</option>  
-                                                                <option value="2" <?= (isset($product['category_id']) && $product['category_id'] === 2) ? 'selected' : '' ?>>Danh Mục 2</option>  
+                                                            <select id="categoryIdInput" class="form-select" name="category_id">
+                                                            <option disabled ><?= $product['product_category_name']?></option> 
+                                                            <?php foreach($categorys as $category): ?>
+                                                                <option value="<?=$category['product_category_id'] ?>"><?=$category['product_category_name'] ?></option>  
+                                                            <?php endforeach; ?> 
                                                             </select>  
                                                             <span class="text-danger">  
                                                                 <?= !empty($_SESSION['errors']['category_id']) ? $_SESSION['errors']['category_id'] : '' ?>  
@@ -91,7 +92,8 @@
                                                     <img src="./uploads/img/<?= $product['product_img'] ?>" width="60px" height="50px" alt="Image Description">  
                                                         <div class="mb-3">  
                                                             <label for="productImageInput" class="form-label">Hình Ảnh Sản Phẩm</label>  
-                                                            <input type="file" class="form-control" name="product_img" value="<?= $product['product_img'] ?>">  
+                                                            <input type="file" class="form-control" name="product_img2" value="<?= $product['product_img'] ?>">  
+                                                            <input type="hidden" class="form-control" name="product_img" value="<?= $product['product_img'] ?>">  
                                                             <span class="text-danger">  
                                                                 <?= !empty($_SESSION['errors']['product_img']) ? $_SESSION['errors']['product_img'] : '' ?>  
                                                             </span>  

@@ -51,7 +51,7 @@
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active"> Sản phẩm</li>
+                                        <li class="breadcrumb-item active">Sản phẩm</li>
                                     </ol>
                                 </div>
 
@@ -93,9 +93,9 @@
                                                     <label for="categoryIdInput" class="form-label">Danh Mục</label>  
                                                     <select id="categoryIdInput" class="form-select" name="category_id" >  
                                                         <option selected disabled>Chọn Danh Mục</option>  
-                                                        <!-- Add category options here -->  
-                                                        <option value="1">Danh Mục 1</option>  
-                                                        <option value="2">Danh Mục 2</option>  
+                                                        <?php foreach($categorys as $category): ?> 
+                                                        <option value="<?=$category['product_category_id'] ?>"><?=$category['product_category_name'] ?></option>  
+                                                        <?php endforeach; ?> 
                                                     </select>  
                                                     <span class="text-danger">  
                                                         <?= !empty($_SESSION['errors']['category_id']) ? $_SESSION['errors']['category_id'] : '' ?>  

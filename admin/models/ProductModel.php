@@ -19,10 +19,19 @@ class ProductModel {
             echo "Error: " . $e->getMessage();
         }
     }
-
+    public function getCategory(){
+        try {
+            $sql="SELECT * FROM `category` ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "$e";
+        }
+    }
     public function getOne($id) {
         try {
-            $sql = "SELECT * FROM `product` WHERE product_id = :id";
+            $sql = "SELECT * FROM `product` p JOIN category c ON p.category_id = c.product_category_id WHERE p.product_id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
