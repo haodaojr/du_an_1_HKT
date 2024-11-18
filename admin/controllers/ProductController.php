@@ -84,6 +84,8 @@ class ProductController {
             $productAmount = (int) $_POST['product_amount'];  
             $productDescription = trim($_POST['product_description']);  
     
+
+             
             // Nếu không có ảnh mới (người dùng không chọn ảnh mới), giữ ảnh cũ từ DB
             if (empty($productImg)) {
                 $productImg = $_POST['product_img']; // Sử dụng ảnh cũ từ DB
