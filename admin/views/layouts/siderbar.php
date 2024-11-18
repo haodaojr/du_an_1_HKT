@@ -59,7 +59,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
-                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Sản phẩm</span>
+                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Danh mục sản phẩm</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarDanhMuc">
                         <ul class="nav nav-sm flex-column">
