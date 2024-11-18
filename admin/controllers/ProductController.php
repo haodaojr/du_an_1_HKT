@@ -56,7 +56,6 @@ class ProductController {
                     // Thêm sản phẩm vào cơ sở dữ liệu  
                     $this->ProductModel->insert($productName, $categoryId, $productImg, $productPrice, $productAmount, $productDescription);  
                     
-                    // Chuyển hướng đến trang danh sách sản phẩm  
                     header('Location: ?act=list_product');  
                     exit(); // Đảm bảo không có mã nào khác được thực thi sau lệnh header  
                 } else {  
