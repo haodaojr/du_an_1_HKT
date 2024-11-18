@@ -14,7 +14,8 @@ class ProductController {
         require_once 'views/products/list_product.php';
     }
 
-    public function addProduct() {  
+    public function addProduct() {
+        $categorys=$this->ProductModel->getCategory();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
             // Lấy dữ liệu từ form  
             $productName = trim($_POST['product_name']);  
@@ -72,14 +73,14 @@ class ProductController {
     }
     public function editProduct() {
        
-        
+        $categorys=$this->ProductModel->getCategory();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
             // Lấy dữ liệu từ form
             $productId = trim($_POST['product_id']);  
             $productName = trim($_POST['product_name']);  
             $categoryId = (int) $_POST['category_id'];  
-            $productImg = isset($_FILES['product_img']['name']) ? $_FILES['product_img']['name'] : '';  // Kiểm tra xem có tệp ảnh mới không
-            $tmp = isset($_FILES['product_img']['tmp_name']) ? $_FILES['product_img']['tmp_name'] : '';  // Tên tạm thời của ảnh
+            $productImg = isset($_FILES['product_img2']['name']) ? $_FILES['product_img2']['name'] : '';  // Kiểm tra xem có tệp ảnh mới không
+            $tmp = isset($_FILES['product_img2']['tmp_name']) ? $_FILES['product_img2']['tmp_name'] : '';  // Tên tạm thời của ảnh
             $productPrice = (float) $_POST['product_price'];  
             $productAmount = (int) $_POST['product_amount'];  
             $productDescription = trim($_POST['product_description']);  
