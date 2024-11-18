@@ -9,6 +9,11 @@
 
         <!-- CSS -->
         <?php require_once "views/layouts/libs_css.php"; ?>
+        <style>
+            form img{
+                width:300px ;
+            }
+        </style>
     </head>
     <body>
         <!-- Begin page -->
@@ -65,7 +70,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="product_category_name" class="form-label">Anh Danh Mục:</label><br>
-                                                        <img src="./uploads/img/<?= $onecate['product_category_img'] ?>" alt="">
+                                                        <img src="./uploads/img/<?= $onecate['product_category_img'] ?>" alt="" >
                                                         <input type="file" id="product_category_img" name="product_category_img" class="form-control" placeholder="Tên Danh Mục" required>
                                                     </div>
                                                     <button type="submit" name="update" class="btn btn-primary">Sua Danh Mục</button>

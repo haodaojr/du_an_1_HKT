@@ -84,12 +84,12 @@
                     <div class="collapse menu-dropdown" id="sidebarDanhMuc">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=list" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="?act=list_cate" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="?act=insert" class="nav-link" data-key="t-nestable-list">
+                                <a href="?act=insert_cate" class="nav-link" data-key="t-nestable-list">
                                     Thêm mới
                                 </a>
                             </li>
