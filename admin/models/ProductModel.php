@@ -64,7 +64,6 @@ class ProductModel {
             echo "Error: " . $e->getMessage();
         }
     }
-
     public function delete($id) {
         try {
             $sql = "DELETE FROM `product` WHERE product_id = :id";
