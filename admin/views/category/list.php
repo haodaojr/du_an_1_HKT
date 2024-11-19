@@ -67,7 +67,7 @@
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
                                                                 <td><?= $product['product_category_id'] ?></td> 
                                                                 <td><?= $product['product_category_name'] ?></td> 
-                                                                <td><img src="./uploads/img/<?= $product['product_category_img'] ?>" alt=""></td>
+                                                                <td><img src="./uploads/img/<?= $product['product_category_img'] ?>" height="150"  alt=""></td>
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
                                                                         <a href="?act=update_cate&product_category_id=<?= $product['product_category_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>

@@ -16,5 +16,13 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Trang chủ
-    '/'                 => (new HomeController())->index(),
+    '/'                 => (new HomeController())->home(),
+    'about'                 => (new HomeController())->about(),
+    'product'           => (new HomeController())->product(),
+    'store'             => (new HomeController())->store(),
+    'feature'           => (new HomeController())->feature(),
+    'blog'              => (new HomeController())->blog(),
+    'testimonial'       => (new HomeController())->testimonial(),
+    '404'               => (new HomeController())->t404(),
+    'contact'           => (new HomeController())->contact(),
 };

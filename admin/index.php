@@ -26,7 +26,7 @@ match ($act) {
     // Category
     'list_cate' => (new CategoryControllers())->Allcate(),
     'insert_cate' => (new CategoryControllers())->insertcate(), // Removed the leading space
-    'delete_cate' => (new CategoryControllers())->deletecate($_GET['product_category_id']),
+    'delete_cate' => (new CategoryControllers())->deletecate(),
     'update_cate' => (new CategoryControllers())->updatecate($_GET['product_category_id']),
 
     // Product
