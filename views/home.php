@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Tea House - Tea Shop Website Template</title>
+    <title>Home</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -94,7 +94,7 @@
                     </div>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="img/about-5.jpg" alt="">
+                            <img class="img-fluid bg-white w-100" src="assets/img/about-5.jpg" alt="">
                         </div>
                         <div class="col-sm-8">
                             <h5>Our tea is one of the most popular drinks in the world</h5>
@@ -272,7 +272,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="store-item position-relative text-center">
-                        <img class="img-fluid" src="img/store-product-1.jpg" alt="">
+                        <img class="img-fluid" src="assets/img/store-product-1.jpg" alt="">
                         <div class="p-4">
                             <div class="text-center mb-3">
                                 <small class="fa fa-star text-primary"></small>

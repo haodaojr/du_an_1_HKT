@@ -37,10 +37,17 @@
             header("Location: ?act=list_cate");
             exit; 
         } else {
-            echo "Error: Không thể xóa danh mục.";
+            echo "<script> 
+                    alert('Danh mục này đang được sử dụng và không thể xóa');
+                    window.location.href = '?act=list_cate'; 
+                </script>";
+            exit;
+            
         }
     } else {
-        echo "Error: ID không hợp lệ.";
+        echo "<script> alert('Danh mục này đang được sử dụng và không thể xóa'); </script>";
+        
+        
     }
 }
 
