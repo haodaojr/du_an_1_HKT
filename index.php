@@ -18,7 +18,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     // Trang chủ
     '/'                 => (new HomeController())->home(),
-    'about'             => (new HomeController())->about(),
+    'about'                 => (new HomeController())->about(),
     'product'           => (new HomeController())->product(),
     'store'             => (new HomeController())->store(),
     'feature'           => (new HomeController())->feature(),
@@ -26,6 +26,7 @@ match ($act) {
     'testimonial'       => (new HomeController())->testimonial(),
     '404'               => (new HomeController())->t404(),
     'contact'           => (new HomeController())->contact(),
+    'Pro_detail'           => (new HomeController())->Pro_detail(),
     //user
     'signup'            =>(new userController())->insert2(),
     'login'             =>(new userController())->dangnhap(),
