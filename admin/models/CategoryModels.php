@@ -53,7 +53,7 @@ class CategoryModels {
             if ($result) {
                 return true; // Thành công
             } else {
-                echo "Không thể xóa danh mục.";
+                echo "Danh mục này đang được sử dụng và không thể xóa";
                 return false; // Thất bại
             }
         } catch (PDOException $e) {

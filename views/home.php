@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Tea House - Tea Shop Website Template</title>
+    <title>Home</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -103,7 +103,7 @@
                     </div>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-4">
-                            <img class="img-fluid bg-white w-100" src="img/about-5.jpg" alt="">
+                            <img class="img-fluid bg-white w-100" src="assets/img/about-5.jpg" alt="">
                         </div>
                         <div class="col-sm-8">
                             <h5>Our tea is one of the most popular drinks in the world</h5>
@@ -271,6 +271,7 @@
                 <p class="fs-5 fw-medium fst-italic text-primary">Our Products</p>
                 <h1 class="display-6">Tea has a complex positive effect on the body</h1>
             </div>
+
             <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
                 <?php foreach ($Another as $Ano): ?>
                     <a href="?act=Pro_detail&product_id=<?= $Ano['product_id'] ?>"
@@ -280,6 +281,69 @@
                             <h4 class="text-primary"><?= htmlspecialchars($Ano['product_name']) ?></h4>
                             <h4 class="text-primary"><?= htmlspecialchars($Ano['product_price']) ?></h4>
                             <span class="text-body"><?= htmlspecialchars($Ano['product_description']) ?></span>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="store-item position-relative text-center">
+                        <img class="img-fluid" src="assets/img/store-product-1.jpg" alt="">
+                        <div class="p-4">
+                            <div class="text-center mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <h4 class="mb-3">Nature close tea</h4>
+                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
+                            <h4 class="text-primary">$19.00</h4>
+                        </div>
+                        <div class="store-overlay">
+                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i class="fa fa-cart-plus ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="store-item position-relative text-center">
+                        <img class="img-fluid" src="assets/img/store-product-2.jpg" alt="">
+                        <div class="p-4">
+                            <div class="text-center mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <h4 class="mb-3">Green tea tulsi</h4>
+                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
+                            <h4 class="text-primary">$19.00</h4>
+                        </div>
+                        <div class="store-overlay">
+                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i class="fa fa-cart-plus ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="store-item position-relative text-center">
+                        <img class="img-fluid" src="assets/img/store-product-3.jpg" alt="">
+                        <div class="p-4">
+                            <div class="text-center mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <h4 class="mb-3">Instant tea premix</h4>
+                            <p>Aliqu diam amet diam et eos. Clita erat ipsum lorem erat ipsum lorem sit sed</p>
+                            <h4 class="text-primary">$19.00</h4>
+                        </div>
+                        <div class="store-overlay">
+                            <a href="" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i class="fa fa-arrow-right ms-2"></i></a>
+                            <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i class="fa fa-cart-plus ms-2"></i></a>
+
                         </div>
                     </a>
                 <?php endforeach; ?>
