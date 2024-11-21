@@ -19,7 +19,6 @@ class ProductModel {
             echo "Error: " . $e->getMessage();
         }
     }
-
     public function getCategory(){
         try {
             $sql="SELECT * FROM `category` ";

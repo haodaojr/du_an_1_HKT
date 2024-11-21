@@ -42,24 +42,6 @@
                                 
                             </div>
                         </div>
-
-                    </div>
-                    <a href="?act=contact" class="nav-item nav-link" id="contact" onclick="setActivePage('contact')">Contact</a>
-                </div>
-                <div class="border-start ps-4 d-none d-lg-block">
-                    <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
-                    <input type="text">
-                </div>
-            </div>
-        </nav>
-    </div>
-</div>
-<script>
-// Hàm này sẽ thay đổi class "active" cho các mục trong nav
-function setActivePage(pageId) {
-    // Lấy tất cả các liên kết a trong navbar
-    const links = document.querySelectorAll('.navbar-nav .nav-link, .dropdown-menu .dropdown-item');
-
                     <?php } ?>
 
 
@@ -77,7 +59,7 @@ function setActivePage(pageId) {
 function setActivePage(pageId) {  
     // Lấy tất cả các liên kết a trong navbar  
     const links = document.querySelectorAll('.navbar-nav .nav-link, .dropdown-menu .dropdown-item');  
-   
+    
     // Xóa class "active" ở tất cả các link  
     links.forEach(link => {  
         link.classList.remove('active');  

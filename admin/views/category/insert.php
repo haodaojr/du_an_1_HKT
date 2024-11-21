@@ -53,7 +53,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="product_category_name" class="form-label">Ảnh Danh Mục:</label>
-                                                    <input type="file" id="product_category_img" name="product_category_img" class="form-control" required>
+                                                    <input type="file" id="product_category_img" name="product_category_img" class="form-control" placeholder="Tên Danh Mục" required>
                                                 </div>
                                                 <button type="submit" name="insert" class="btn btn-primary">Thêm Danh Mục</button>
                                                 <a href="?act=list_cate"><input type="text" class="btn btn-primary" value="Danh Sách Danh Mục"></a>
