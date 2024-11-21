@@ -9,6 +9,7 @@ require_once './controllers/HomeController.php';
 require_once './controllers/userController.php';
 
 // Require toàn bộ file Models
+require_once './models/ProductModel.php';
 require_once './models/userModel.php';
 // Route
 $act = $_GET['act'] ?? '/';
@@ -26,6 +27,8 @@ match ($act) {
     'testimonial'       => (new HomeController())->testimonial(),
     '404'               => (new HomeController())->t404(),
     'contact'           => (new HomeController())->contact(),
+    'detail'           => (new HomeController())->detail(),
+
     //user
     'signup'            =>(new userController())->insert2(),
     'login'             =>(new userController())->dangnhap(),
