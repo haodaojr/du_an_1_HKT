@@ -27,6 +27,7 @@ class HomeController
       require_once 'views/testimonial.php';
     }
     public function product(){
+      $products=$this->product_model->getAll();
       require_once 'views/product.php';
     }
     public function t404(){

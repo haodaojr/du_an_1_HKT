@@ -41,49 +41,76 @@
 
     <!-- Contact Start -->
     <div class="container-xxl contact py-5">
-            <div class="row">  
-                    <div class="col-md-6">  
-                        <!-- Hình ảnh sản phẩm -->  
-                        <img src="admin/uploads/img/<?= $product['product_img'] ?>" class="img-fluid" alt="Tên sản phẩm">  
-                    </div>  
-                    <div class="col-md-6">  
-                        <h1 class="h2"><?= $product['product_name'] ?></h1>  
-                        <p class="text-muted"><span class="text-danger">$<?= $product['product_price'] ?></span></p>  
-                        <p class="lead"><?= $product['product_description'] ?></p>  
-                        
-                        <!-- Thêm trường số lượng -->  
-                        <div class="d-flex align-items-center mb-3">  
-                            <input type="number" class="form-control me-2"  min="1" id="quantity" style="width: 80px;">  
-                            <button class="btn btn-primary rounded-pill py-2 px-4">Add to cart</button>  
-                        </div>  
-
-                        <hr>  
-                        <p><strong>Category:</strong> <?= $product['product_category_name'] ?></p>  
-                        <!-- <p><strong>Tags:</strong> 1L, berrino, PHA CHẾ, sinh tố</p>   -->  
-                    </div>  
-
-  
-
-                <!-- Phần sản phẩm liên quan -->  
-                <div class="related-products">  
-                    <h3 class="description-title">Related Products</h3> 
-                    <div class="row">  
-                    <?php foreach ($product2 as $product): ?>   
-                    <div class="col-md-3 mb-4"> <!-- Thêm mb-4 để có khoảng cách giữa các hàng -->  
-                        <div class="related-product-card border text-center"> <!-- Thêm text-center để căn giữa -->  
-                            <a href="?act=detail&id=<?= $product['product_id'] ?>" class="text-decoration-none text-dark">  
-                                <img class="img-fluid" src="admin/uploads/img/<?= $product['product_img'] ?>" alt="<?= $product['product_name'] ?>">  
-                                <h5><?= $product['product_name'] ?></h5>  
-                                <p class="text-danger">$<?= number_format($product['product_price'], 2) ?></p>  
-                            </a>  
-                        </div>  
-                    </div>   
-                    <?php endforeach; ?>
-                        
-                    </div>  
+    <div class="row">  
+        <div class="col-md-6">  
+            <!-- Hình ảnh sản phẩm -->  
+            <img src="admin/uploads/img/<?= $product['product_img'] ?>" class="img-fluid" alt="Tên sản phẩm">  
+        </div>  
+        <div class="col-md-6">  
+            <h1 class="h2"><?= $product['product_name'] ?></h1>  
+            <p class="text-muted"><span class="text-danger">$<?= $product['product_price'] ?></span></p>  
+            <p class="lead"><?= $product['product_description'] ?></p>  
+            
+            <!-- Thêm trường số lượng với nút tăng và giảm -->  
+            <form action="add_to_cart.php" method="post">
+                <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+                <input type="hidden" name="product_amount" value="<?= $product['product_amount'] ?>">
+                <div class="d-flex align-items-center mb-3">  
+                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity()" <?= $product['product_amount'] == 0 ? 'disabled' : '' ?>>-</button>
+                    <input type="number" class="form-control mx-2" name="quantity" min="1" max="<?= $product['product_amount'] ?>" value="<?= $product['product_amount'] == 0 ? '0' : '1' ?>" id="quantity" style="width: 80px;" readonly>  
+                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity()" <?= $product['product_amount'] == 0 ? 'disabled' : '' ?>>+</button>
+                    <button type="submit" class="btn btn-primary rounded-pill py-2 px-4 ms-3" <?= $product['product_amount'] == 0 ? 'disabled' : '' ?>>Add to cart</button>  
                 </div>  
-            </div>  
+                <?php if ($product['product_amount'] == 0): ?>
+                    <p class="text-danger">Hết hàng</p>
+                <?php endif; ?>
+            </form>
+
+            <hr>  
+            <p><strong>Category:</strong> <?= $product['product_category_name'] ?></p>  
+            <!-- <p><strong>Tags:</strong> 1L, berrino, PHA CHẾ, sinh tố</p>   -->  
+        </div>  
     </div>
+
+    <!-- Phần sản phẩm liên quan -->  
+    <div class="related-products">  
+        <h3 class="description-title">Related Products</h3> 
+        <div class="row">  
+        <?php foreach ($product2 as $product): ?>   
+        <div class="col-md-3 mb-4"> <!-- Thêm mb-4 để có khoảng cách giữa các hàng -->  
+            <div class="related-product-card border text-center"> <!-- Thêm text-center để căn giữa -->  
+                <a href="?act=detail&id=<?= $product['product_id'] ?>" class="text-decoration-none text-dark">  
+                    <img class="img-fluid" src="admin/uploads/img/<?= $product['product_img'] ?>" alt="<?= $product['product_name'] ?>">  
+                    <h5><?= $product['product_name'] ?></h5>  
+                    <p class="text-danger">$<?= number_format($product['product_price'], 2) ?></p>  
+                </a>  
+            </div>  
+        </div>   
+        <?php endforeach; ?>
+            
+        </div>  
+    </div>  
+</div>
+
+<script>
+function decreaseQuantity() {
+    var quantityInput = document.getElementById('quantity');
+    var currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+        quantityInput.value = currentValue - 1;
+    }
+}
+
+function increaseQuantity() {
+    var quantityInput = document.getElementById('quantity');
+    var currentValue = parseInt(quantityInput.value);
+    var maxValue = parseInt(quantityInput.max);
+    if (currentValue < maxValue) {
+        quantityInput.value = currentValue + 1;
+    }
+}
+</script>
+
     <!-- Contact End -->
 
 
