@@ -31,7 +31,7 @@
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
                     <li class="breadcrumb-item text-dark" aria-current="page">Products</li>
                 </ol>
             </nav>
@@ -48,34 +48,23 @@
                 <h1 class="display-6">Tea has a complex positive effect on the body</h1>
             </div>
             <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
-                <a href="" class="d-block product-item rounded">
-                    <img src="assets/img/product-1.jpg" alt="">
+            <?php foreach($products as $product): ?>
+                <a href="?act=detail&id=<?= $product['product_id'] ?>" class="d-block product-item rounded">
+                    <img src="admin/uploads/img/<?= $product['product_img'] ?>" height="300" alt="">
                     <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Green Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
+                        <h4 class="text-primary"><?= $product['product_name'] ?></h4>
+                        <span class="text-body"><?= $product['product_description'] ?></span>
+                        <div class="mt-3">
+                            <?php if ($product['product_amount'] > 0): ?>
+                                <button class="btn btn-success">Còn hàng</button>
+                            <?php else: ?>
+                                <button class="btn btn-danger">Hết hàng</button>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="assets/img/product-2.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Black Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="assets/img/product-3.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Spiced Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
-                    </div>
-                </a>
-                <a href="" class="d-block product-item rounded">
-                    <img src="assets/img/product-4.jpg" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary">Organic Tea</h4>
-                        <span class="text-body">Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum</span>
-                    </div>
-                </a>
+
+            <?php endforeach; ?>
             </div>
         </div>
     </div>

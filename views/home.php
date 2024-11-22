@@ -127,13 +127,21 @@
             </div>
             <div class="owl-carousel product-carousel wow fadeInUp" data-wow-delay="0.5s">
                 <?php foreach($products as $product): ?>
-                <a href="?act=detail&id=<?=$product['product_id'] ?>" class="d-block product-item rounded">
-                    <img src="admin/uploads/img/<?= $product['product_img'] ?>"  height="300" alt="">
-                    <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
-                        <h4 class="text-primary"><?= $product['product_name'] ?></h4>
-                        <span class="text-body"><?= $product['product_description'] ?></span>
-                    </div>
-                </a>
+                    <a href="?act=detail&id=<?= $product['product_id'] ?>" class="d-block product-item rounded">
+                        <img src="admin/uploads/img/<?= $product['product_img'] ?>" height="300" alt="">
+                        <div class="bg-white shadow-sm text-center p-4 position-relative mt-n5 mx-4">
+                            <h4 class="text-primary"><?= $product['product_name'] ?></h4>
+                            <span class="text-body"><?= $product['product_description'] ?></span>
+                            <div class="mt-3">
+                                <?php if ($product['product_amount'] > 0): ?>
+                                    <button class="btn btn-success">Còn hàng</button>
+                                <?php else: ?>
+                                    <button class="btn btn-danger">Hết hàng</button>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </a>
+
                 <?php endforeach; ?>
             </div>
         </div>
@@ -271,6 +279,13 @@
                             <a href="?act=detail&id=<?= $product['product_id'] ?>" class="btn btn-primary rounded-pill py-2 px-4 m-2">More Detail <i class="fa fa-arrow-right ms-2"></i></a>
                             <a href="" class="btn btn-dark rounded-pill py-2 px-4 m-2">Add to Cart <i class="fa fa-cart-plus ms-2"></i></a>
                         </div>
+                        <div class="mt-3">
+                                <?php if ($product['product_amount'] > 0): ?>
+                                    <button class="btn btn-success">Còn hàng</button>
+                                <?php else: ?>
+                                    <button class="btn btn-danger">Hết hàng</button>
+                                <?php endif; ?>
+                            </div>
                     </div>
                 </div>
                 <?php endforeach; ?>

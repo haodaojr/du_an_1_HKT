@@ -48,7 +48,10 @@ class ProductModel{
     }
     public function getThere(){
         try {
-            $sql = "SELECT * FROM `product` WHERE 1 LIMIT 3";
+            $sql = "SELECT * FROM `product` 
+            ORDER BY `product_price` DESC 
+            LIMIT 3;
+            ";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
