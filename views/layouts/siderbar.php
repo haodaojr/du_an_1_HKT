@@ -24,7 +24,7 @@
                     </div>  
                     <a href="?act=contact" class="nav-item nav-link" id="contact" onclick="setActivePage('contact')">Contact</a>  
                     <!-- Sign Up and Log In buttons -->
-                    <?php if(empty($_SESSION['user_name'])){ ?>  
+                    <?php if(empty($_SESSION['user_name'])&&empty($_SESSION['user_id'])){ ?>  
                     <div id="authButtons">  
                         <a href="?act=signup" class="nav-item nav-link" id="signup" onclick="setActivePage('signup')">Sign Up</a>  
                     </div>  
@@ -43,11 +43,13 @@
                             </div>
                         </div>
                     <?php } ?>
-
-
                 </div>  
                 <div class="border-start ps-4 d-none d-lg-block">  
                     <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>  
+                </div>  
+                <!-- Cart Icon -->
+                <div class="border-start ps-4 d-none d-lg-block">  
+                    <a href="?act=viewCart" class="btn btn-sm p-0"><i class="fa fa-shopping-cart"></i></a>  
                 </div>  
             </div>  
         </nav>  
@@ -108,4 +110,4 @@ function checkLoginStatus() {
 function logout() {  
     
 }  
-</script>  
+</script>
