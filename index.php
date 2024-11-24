@@ -7,10 +7,12 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once './controllers/HomeController.php';
 require_once './controllers/userController.php';
+require_once './controllers/cartController.php';
 
 // Require toàn bộ file Models
 require_once './models/ProductModel.php';
 require_once './models/userModel.php';
+require_once './models/cartModel.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -33,4 +35,12 @@ match ($act) {
     'signup'            =>(new userController())->insert2(),
     'login'             =>(new userController())->dangnhap(),
     'logout'            =>(new userController())->logout(),
+
+    //cart
+    'add_to_cart'       =>(new CartController())->addtocart(),
+    'viewCart'          =>(new CartController())->cart(),
+    'update_cart'       =>(new CartController())->updateCart(),
+    'remove_from_cart'  =>(new CartController())->deleteCartItem(),
+    //thanhtoan
+    // 'checkout'          =>(new ),
 };

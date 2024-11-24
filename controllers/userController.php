@@ -37,10 +37,12 @@ class userController {
     
             if ($user) {
                 // Đăng nhập thành công, lưu thông tin người dùng vào session
-                $_SESSION['user_id'] = $user['id'];  // Giả sử user có trường 'id'
+                $_SESSION['user_id'] = $user['user_id'];  // Giả sử user có trường 'id'
                 $_SESSION['user_name'] = $user['user_name'];  // Lưu tên người dùng (kiểm tra đúng tên trường trong DB)
                 $_SESSION['user_email'] = $user['user_email']; // Lưu email người dùng
                 $_SESSION['user_role'] = $user['user_role'];
+                $_SESSION['user_address']=$user['user_address'];
+                $_SESSION['user_phone']=$user['user_phone'];
                 header('Location: ?act=/');  // Chuyển hướng về trang chủ
                 exit(); // Đảm bảo dừng mã ngay sau khi chuyển hướng
             } else {

@@ -52,19 +52,25 @@
             <p class="lead"><?= $product['product_description'] ?></p>  
             
             <!-- Thêm trường số lượng với nút tăng và giảm -->  
-            <form action="add_to_cart.php" method="post">
-                <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+            <form action="?act=add_to_cart" method="post">
+            <?php if (isset($_SESSION['user_id'])): ?><input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>"> <?php endif; ?>                <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+                <input type="hidden" name="product_name" value="<?= $product['product_name'] ?>">
+                <input type="hidden" name="product_img" value="<?= $product['product_img'] ?>">
+                <input type="hidden" name="product_price" value="<?= $product['product_price'] ?>">
                 <input type="hidden" name="product_amount" value="<?= $product['product_amount'] ?>">
-                <div class="d-flex align-items-center mb-3">  
+                
+                <div class="d-flex align-items-center mb-3">
                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity()" <?= $product['product_amount'] == 0 ? 'disabled' : '' ?>>-</button>
                     <input type="number" class="form-control mx-2" name="quantity" min="1" max="<?= $product['product_amount'] ?>" value="<?= $product['product_amount'] == 0 ? '0' : '1' ?>" id="quantity" style="width: 80px;" readonly>  
                     <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity()" <?= $product['product_amount'] == 0 ? 'disabled' : '' ?>>+</button>
-                    <button type="submit" class="btn btn-primary rounded-pill py-2 px-4 ms-3" <?= $product['product_amount'] == 0 ? 'disabled' : '' ?>>Add to cart</button>  
-                </div>  
+                    <button type="submit" class="btn btn-primary rounded-pill py-2 px-4 ms-3" <?= $product['product_amount'] == 0 ? 'disabled' : '' ?>>Add to cart</button>
+                </div>
+                
                 <?php if ($product['product_amount'] == 0): ?>
                     <p class="text-danger">Hết hàng</p>
                 <?php endif; ?>
             </form>
+
 
             <hr>  
             <p><strong>Category:</strong> <?= $product['product_category_name'] ?></p>  
