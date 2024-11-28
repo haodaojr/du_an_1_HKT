@@ -34,10 +34,6 @@ class ProductModel{
                 FROM product p  
                 JOIN category c ON p.category_id = c.product_category_id  
                 WHERE p.category_id = (SELECT category_id FROM product WHERE product_id = $id)  
-                AND p.product_price BETWEEN   
-                    (SELECT (product_price - 10) FROM product WHERE product_id = $id)   
-                    AND   
-                    (SELECT (product_price + 10) FROM product WHERE product_id = $id)  
                 LIMIT 4;";  
             $stmt = $this->conn->prepare($sql);  
             $stmt->execute();  
@@ -49,9 +45,19 @@ class ProductModel{
     public function getThere(){
         try {
             $sql = "SELECT * FROM `product` 
-            ORDER BY `product_price` DESC 
+            ORDER BY `category_id`=3 DESC 
             LIMIT 3;
             ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+    public function search($category_id){
+        try {
+            $sql="SELECT * FROM `product` WHERE category_id=$category_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();

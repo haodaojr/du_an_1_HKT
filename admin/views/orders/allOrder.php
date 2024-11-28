@@ -1,19 +1,17 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+
 <head>
     <meta charset="utf-8" />
-    <title>Product</title>
+    <title>Danh sách đơn hàng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <style>
-           table img{
-                width:300px ;
-            }
-        </style>
+
     <!-- CSS -->
     <?php require_once "views/layouts/libs_css.php"; ?>
 </head>
+
 <body>
     <!-- Begin page -->
     <div id="layout-wrapper">
@@ -23,31 +21,38 @@
         require_once "views/layouts/siderbar.php";
         ?>
         
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
+                    <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý Danh Mục</h4>
+                                <h4 class="mb-sm-0">Quản lý đơn hàng</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Người dùng</li>
+                                        <li class="breadcrumb-item active">Đơn hàng</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- end page title -->
                     <div class="row">
                         <div class="col">
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách Danh Mục</h4>
-                                        <a href="?act=insert_cate" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm Danh Mục</a>
-                                    </div>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
+                                    </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
                                             <div class="table-responsive">
@@ -55,30 +60,36 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
-                                                            <th scope="col">Tên Danh Mục</th>
-                                                            <th scope="col">Ảnh Danh Mục</th>
-                                                            <th>Xoa  -  Sua</th>
+                                                            <th scope="col">Mã đơn hàng</th>
+                                                            <th scope="col">Tên sản phẩm</th>
+                                                            <th scope="col">Hình ảnh</th>
+                                                            <th scope="col">Giá</th>
+                                                            <th scope="col">Số lượng</th>
+                                                            <th scope="col">Trạng thái đơn hàng</th>
+                                                            <th scope="col">Phương thức thanh toán</th>
+                                                            <th scope="col">Ngày tạo</th>
+                                                            <th scope="col">Ngày cập nhật</th>
+                                                            <th scope="col">Hành động</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($Allcate as $index => $product) : ?>
+                                                        <?php foreach ($orders as $index => $order) : ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $product['product_category_name'] ?></td> 
-                                                                <td><img src="./uploads/img/<?= $product['product_category_img'] ?>" width="200"  alt=""></td>
+                                                                <td><?= $order['order_id'] ?></td>
+                                                                <td><?= $order['product_name'] ?></td>
+                                                                <td><img src="uploads/img/<?= $order['product_img'] ?>" width="60px" height="50px" alt="Image Description"></td>
+                                                                <td><?= number_format($order['product_price'], 0, ',', '.') ?> VNĐ</td>
+                                                                <td><?= $order['quantity'] ?></td>
+                                                                <td><?= $order['order_status'] ?></td>
+                                                                <td><?= $order['payment_type'] ?></td>
+                                                                <td><?= $order['created_at'] ?></td>
+                                                                <td><?= $order['updated_at'] ?></td>
                                                                 <td>
-                                                                    <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=update_cate&product_category_id=<?= $product['product_category_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
-                                                                        <form action="?act=delete_cate" method="POST" onsubmit="return confirm('Bạn có muốn xóa không?')">
-                                                                            <input type="hidden" name="product_category_id" value="<?= $product['product_category_id'] ?>">
-                                                                            <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
-                                                                                <i class="ri-delete-bin-line"></i>
-                                                                            </button>
-                                                                        </form>
-                                                                    </div>
+                                                                    <a href="?act=edit_order&order_id=<?= $order['order_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                                                 </td>
                                                             </tr>
-                                                        <?php endforeach; ?>
+                                                        <?php endforeach ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -92,6 +103,7 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
+
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -137,4 +149,5 @@
     <!-- JAVASCRIPT -->
     <?php require_once "views/layouts/libs_js.php"; ?>
 </body>
+
 </html>

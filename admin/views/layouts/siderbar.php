@@ -59,7 +59,8 @@
                 </li>
                 <li class="nav-item">  
                     <a class="nav-link menu-link" href="#sidebarSanPham" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSanPham">  
-                    <i class="ri-store-line"></i> <span data-key="t-advance-ui">Sản phẩm</span>  
+                    <i class="ri-cup-line"></i> <span data-key="t-advance-ui">Sản phẩm</span>
+  
                     </a>  
                     <div class="collapse menu-dropdown" id="sidebarSanPham">  
                         <ul class="nav nav-sm flex-column">  
@@ -96,7 +97,22 @@
                             </li>
                         </ul>
                     </div>
-                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
+
+                <li class="menu-title"><i class="ri-shopping-cart-line"></i> <span data-key="t-pages">Bán hàng</span></li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarDonHang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDonHang">
+                        <i class="ri-shopping-cart-line"></i> <span data-key="t-advance-ui">Đơn hàng</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarDonHang">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=list_orders" class="nav-link" data-key="t-sweet-alerts">
+                                    Danh sách
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
             </ul>
         </div>

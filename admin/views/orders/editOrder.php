@@ -1,19 +1,17 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+
 <head>
     <meta charset="utf-8" />
-    <title>Product</title>
+    <title>Chỉnh sửa đơn hàng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <style>
-           table img{
-                width:300px ;
-            }
-        </style>
+
     <!-- CSS -->
     <?php require_once "views/layouts/libs_css.php"; ?>
 </head>
+
 <body>
     <!-- Begin page -->
     <div id="layout-wrapper">
@@ -23,66 +21,70 @@
         require_once "views/layouts/siderbar.php";
         ?>
         
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
+                    <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý Danh Mục</h4>
+                                <h4 class="mb-sm-0">Chỉnh sửa đơn hàng</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Người dùng</li>
+                                        <li class="breadcrumb-item active">Chỉnh sửa đơn hàng</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- end page title -->
                     <div class="row">
                         <div class="col">
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách Danh Mục</h4>
-                                        <a href="?act=insert_cate" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm Danh Mục</a>
-                                    </div>
+                                        <h4 class="card-title mb-0 flex-grow-1">Chỉnh sửa đơn hàng</h4>
+                                    </div><!-- end card header -->
                                     <div class="card-body">
-                                        <div class="live-preview">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped table-nowrap align-middle mb-0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">STT</th>
-                                                            <th scope="col">Tên Danh Mục</th>
-                                                            <th scope="col">Ảnh Danh Mục</th>
-                                                            <th>Xoa  -  Sua</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php foreach ($Allcate as $index => $product) : ?>
-                                                            <tr>
-                                                                <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $product['product_category_name'] ?></td> 
-                                                                <td><img src="./uploads/img/<?= $product['product_category_img'] ?>" width="200"  alt=""></td>
-                                                                <td>
-                                                                    <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=update_cate&product_category_id=<?= $product['product_category_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
-                                                                        <form action="?act=delete_cate" method="POST" onsubmit="return confirm('Bạn có muốn xóa không?')">
-                                                                            <input type="hidden" name="product_category_id" value="<?= $product['product_category_id'] ?>">
-                                                                            <button type="submit" class="link-danger fs-15" style="border: none; background: none;">
-                                                                                <i class="ri-delete-bin-line"></i>
-                                                                            </button>
-                                                                        </form>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    </tbody>
-                                                </table>
+                                        <form action="?act=edit_order" method="POST">
+                                            <input type="hidden" name="order_id" value="<?= $order['order_id'] ?>">
+                                            <div class="mb-3">
+                                                <label for="product_name" class="form-label">Tên sản phẩm</label>
+                                                <input type="text" class="form-control" id="product_name" name="product_name" value="<?= $order['product_name'] ?>" required>
                                             </div>
-                                        </div>
+                                            <div class="mb-3">
+                                                <label for="product_price" class="form-label">Giá</label>
+                                                <input type="number" class="form-control" id="product_price" name="product_price" value="<?= $order['product_price'] ?>" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="quantity" class="form-label">Số lượng</label>
+                                                <input type="number" class="form-control" id="quantity" name="quantity" value="<?= $order['quantity'] ?>" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="order_status" class="form-label">Trạng thái đơn hàng</label>
+                                                <select class="form-control" id="order_status" name="order_status" required>
+                                                    <option value="pending" <?= $order['order_status'] == 'pending' ? 'selected' : '' ?>>Pending</option>
+                                                    <option value="processing" <?= $order['order_status'] == 'processing' ? 'selected' : '' ?>>Processing</option>
+                                                    <option value="shipped" <?= $order['order_status'] == 'shipped' ? 'selected' : '' ?>>Shipped</option>
+                                                    <option value="delivered" <?= $order['order_status'] == 'delivered' ? 'selected' : '' ?>>Delivered</option>
+                                                    <option value="completed" <?= $order['order_status'] == 'completed' ? 'selected' : '' ?>>Completed</option>
+                                                </select>
+
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="payment_type" class="form-label">Phương thức thanh toán</label>
+                                                <input type="text" class="form-control" id="payment_type" name="payment_type" value="<?= $order['payment_type'] ?>" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                        </form>
                                     </div><!-- end card-body -->
                                 </div><!-- end card -->
                             </div> <!-- end .h-100-->
@@ -92,6 +94,7 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
+
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -137,4 +140,5 @@
     <!-- JAVASCRIPT -->
     <?php require_once "views/layouts/libs_js.php"; ?>
 </body>
+
 </html>

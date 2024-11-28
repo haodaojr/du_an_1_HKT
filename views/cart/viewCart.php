@@ -28,8 +28,7 @@
             <h1 class="display-2 text-dark mb-4 animated slideInDown">Giỏ hàng của bạn</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
                     <li class="breadcrumb-item text-dark" aria-current="page">Giỏ hàng</li>
                 </ol>
             </nav>
@@ -40,6 +39,9 @@
     <!-- Cart Start -->
     <div class="container-xxl contact py-5">
         <div class="container">
+            <div class="d-flex justify-content-end mb-3">
+                <a href="?act=oderstatus" class="btn btn-info">Tình trạng đơn hàng</a>
+            </div>
             <?php
             // Khởi tạo biến $total_price
             $total_price = 0;
@@ -89,7 +91,11 @@
                 <!-- Tổng tiền -->
                 <h3 class="mt-3">Tổng tiền: <?= number_format($total_price, 0, ',', '.') ?> VNĐ</h3>
 
-                <a href="?act=checkout" class="btn btn-success mt-3">Thanh toán</a>
+                <!-- Form đặt hàng -->
+                <form action="?act=create_order" method="post" class="mt-3">
+                    <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>"> <!-- Lưu cart_id để gửi đi -->
+                    <button type="submit" class="btn btn-success">Đặt hàng</button>
+                </form>
             <?php
             }
             ?>
