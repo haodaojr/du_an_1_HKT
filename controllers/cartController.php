@@ -11,10 +11,18 @@ class CartController {
     }
 
     public function cart() {
-        $id = $_SESSION['user_id'];
-        $carts = $this->CartModel->getcart($id);
-        require_once './views/cart/viewCart.php';
-    }
+        if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+            $id = $_SESSION['user_id'];
+            $carts = $this->CartModel->getcart($id);
+        } else {
+            echo "Bạn chưa đăng nhập vào shop";
+        }
+        
+    require_once './views/cart/viewCart.php';
+
+        }
+        
+        
 
     public function addtocart() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,7 +33,7 @@ class CartController {
                 $product_img = $_POST['product_img'];
                 $product_price = $_POST['product_price'];
                 $quantity = $_POST['quantity'];
-                $status = 'pending';
+                $status = 'in_cart';
 
                 $this->CartModel->add($user_id, $product_id, $product_name, $product_img, $product_price, $quantity, $status);
 
@@ -59,7 +67,7 @@ class CartController {
             $this->CartModel->updateQuantity($cart_id, $quantity, $product_id);
 
             // Redirect hoặc thông báo thành công
-            echo "<script>alert('Giỏ hàng đã được cập nhật.');</script>";
+            // echo "<script>alert('Giỏ hàng đã được cập nhật.');</script>";
             echo "<script>window.location.href='?act=viewCart';</script>";
         }
     }
@@ -76,5 +84,23 @@ class CartController {
             echo "<script>window.location.href='?act=viewCart';</script>";
         }
     }
+    public function createOrder() {  
+        // Kiểm tra nếu có yêu cầu POST từ form  
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {  
+            // Kiểm tra xem cart_id có được gửi tới không  
+            if (isset($_POST['cart_id']) && !empty($_POST['cart_id'])) {  
+                $cart_id = intval($_POST['cart_id']); // Chuyển đổi sang kiểu số nguyên  
+
+                // Gọi phương thức để thêm đơn hàng  
+                $this->CartModel->addOrders($cart_id);
+            } else {  
+                echo "<script>alert('Cart ID không hợp lệ.');</script>";
+
+            }  
+        } else {  
+            echo "<script>alert('Yêu cầu không hợp lệ.');</script>";  
+        }  
+        
+    }  
 }
 ?>

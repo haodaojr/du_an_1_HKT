@@ -3,8 +3,10 @@
 class HomeController
 {
     public $product_model;
+    public $category;
     public function __construct(){
       $this->product_model = new ProductModel();
+      $this->category = new CategoryModels();
     }
     public function home() {
       $products=$this->product_model->getAll();
@@ -13,9 +15,6 @@ class HomeController
     }
     public function about() {
       require_once 'views/about.php';  
-    }
-    public function store(){
-      require_once 'views/store.php';
     }
     public function contact(){
       require_once 'views/contact.php';
@@ -27,9 +26,36 @@ class HomeController
       require_once 'views/testimonial.php';
     }
     public function product(){
+      $category=$this->category->Allcate();
       $products=$this->product_model->getAll();
       require_once 'views/product.php';
     }
+    public function search() {
+      // Khởi tạo biến $category
+      $category = $this->category->Allcate();
+      
+      // Khởi tạo biến $products là một mảng rỗng
+      $products = [];
+      
+      // Kiểm tra phương thức yêu cầu
+      if ($_SERVER["REQUEST_METHOD"] === "POST") {  
+          $search = $_POST['search'];
+          if ($search == 0) {
+              $_SESSION['error'] = "Bạn chưa chọn danh mục";
+          } else {
+              $products = $this->product_model->search($search);
+              unset($_SESSION['error']); // Xóa thông báo lỗi nếu tìm kiếm thành công
+          }
+      }
+      
+      // Kiểm tra nếu $category không phải là mảng hoặc đối tượng
+      if (!is_array($category) && !is_object($category)) {
+          $category = [];
+      }
+      
+      require_once 'views/product.php';
+  }
+  
     public function t404(){
       require_once 'views/404.php';
     }
