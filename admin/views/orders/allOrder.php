@@ -88,6 +88,11 @@
                                                                 <td>
                                                                     <a href="?act=edit_order&order_id=<?= $order['order_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
                                                                 </td>
+                                                                <td>
+                                                                <?php if ($order['order_status'] == 'completed') { ?>
+                                                                    <a href="?act=confirm_order&order_id=<?= $order['order_id'] ?>" class="btn btn-danger">Xác nhận</a>
+                                                                <?php } ?>
+                                                            </td>
                                                             </tr>
                                                         <?php endforeach ?>
                                                     </tbody>

@@ -4,9 +4,11 @@ class HomeController
 {
     public $product_model;
     public $category;
+    public $review;
     public function __construct(){
       $this->product_model = new ProductModel();
       $this->category = new CategoryModels();
+      $this->review=new ReviewModel();
     }
     public function home() {
       $products=$this->product_model->getAll();
@@ -61,23 +63,28 @@ class HomeController
     }
     public function blog(){
       require_once 'views/blog.php';
-    }public function detail() {  
-      // Kiểm tra xem có truyền id không  
+    }
+    public function detail() {  
       if (isset($_GET['id'])) {  
-          $id = (int)$_GET['id']; // Chuyển đổi id sang kiểu số nguyên  
+          $id =$_GET['id'];  
           $product = $this->product_model->getOne($id);
-          $product2=$this->product_model->getcate($id);  
+          $product2 = $this->product_model->getcate($id);  
+          $reviews = $this->review->getReviewsByProductId($id);
+          $check=$this->review->checkBillDetail($_SESSION['user_id'],$id);
+          if (!is_array($reviews) && !is_object($reviews)) {
+              $reviews = [];
+          }
           
-          // Kiểm tra xem sản phẩm có tồn tại không  
-          if ($product&&$product2) {  
-              require_once 'views/detail.php'; // Gọi view hiển thị chi tiết sản phẩm  
+          if ($product && $product2) {  
+              require_once 'views/detail.php';   
           } else {  
               // Nếu không tìm thấy sản phẩm  
-              echo "Product not found.";  
+              echo "Không tìm thấy sản phẩm .";  
           }  
       } else {  
           // Nếu không có id được truyền  
           echo "ID not provided.";  
       }  
   }
+  
 }

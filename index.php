@@ -9,6 +9,7 @@ require_once './controllers/HomeController.php';
 require_once './controllers/userController.php';
 require_once './controllers/cartController.php';
 require_once './controllers/ordersController.php';
+require_once './controllers/reviewController.php';
 
 
 // Require toàn bộ file Models
@@ -17,6 +18,7 @@ require_once './models/userModel.php';
 require_once './models/cartModel.php';
 require_once './models/ordersModel.php';
 require_once './admin/models/CategoryModels.php';
+require_once './models/reviewModel.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -51,4 +53,6 @@ match ($act) {
     'confirm_order'     =>(new OrdersController())->confirmOrder(),
     //search
     'search'            =>(new HomeController())->search(),
+    'review'            =>(new ReviewController())->review(),
+    'add_review'            =>(new ReviewController())->addReview(),
 };

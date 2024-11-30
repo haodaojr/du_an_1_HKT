@@ -76,7 +76,7 @@
             </div>
             <div class="col-md-6">
                 <h1 class="h2"><?= $product['product_name'] ?></h1>
-                <p class="text-muted"><span class="text-danger"><?= $product['product_price'] ?> VNĐ</span></p>
+                <p class="text-muted"><span class="text-danger"><?= number_format($product['product_price']) ?> VNĐ</span></p>
                 <p class="lead">Số lượng: <?= $product['product_amount'] ?></p>
 
                 <!-- Thêm trường số lượng với nút tăng và giảm -->
@@ -107,6 +107,34 @@
             </div>
         </div>
 
+        <!-- Phần bình luận và đánh giá -->
+        <div class="reviews">
+            <h3 class="description-title">Bình luận và đánh giá</h3>
+            <div class="row">
+                <?php foreach ($reviews as $review): ?>
+                <div class="col-md-12 mb-4">
+                    <div class="review-card border p-3">
+                        <div class="d-flex justify-content-between">
+                            <h5><?= $review['user_name'] ?></h5>
+                            <div>
+                                <?php for ($i = 0; $i < $review['rating']; $i++): ?>
+                                <small class="fa fa-star text-primary"></small>
+                                <?php endfor; ?>
+                                <?php for ($i = $review['rating']; $i < 5; $i++): ?>
+                                <small class="fa fa-star text-muted"></small>
+                                <?php endfor; ?>
+                            </div>
+                        </div>
+                        <p><?= $review['comment'] ?></p>      <small class="text-muted"><?= $review['created_at'] ?></small>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php if($check){ ?>
+                <a class="btn btn-primary" href="?act=review&id=<?= $product['product_id'] ?>">Viết đánh giá</a>
+            <?php } ?>
+        </div>
+
         <!-- Phần sản phẩm liên quan -->
         <div class="related-products">
             <h3 class="description-title">Sản phẩm liên quan</h3>
@@ -117,7 +145,7 @@
                         <a href="?act=detail&id=<?= $product['product_id'] ?>" class="text-decoration-none text-dark">
                             <img class="img-fluid product-img" src="admin/uploads/img/<?= $product['product_img'] ?>" alt="<?= $product['product_img'] ?>">
                             <h5 class="product-name"><?= $product['product_name'] ?></h5>
-                            <p class="text-danger">$<?= number_format($product['product_price'], 2) ?></p>
+                            <p class="text-danger"><?= number_format($product['product_price']) ?> VNĐ</p>
                         </a>
                     </div>
                 </div>
