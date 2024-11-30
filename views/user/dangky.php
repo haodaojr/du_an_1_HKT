@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <meta charset="utf-8">
-    <title>Register</title>
+    <title>Đăng ký</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -25,12 +25,12 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
-            <h1 class="display-2 text-dark mb-4 animated slideInDown">Register</h1>
+            <h1 class="display-2 text-dark mb-4 animated slideInDown">Đăng ký</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
                     <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
-                    <li class="breadcrumb-item text-dark" aria-current="page">Register</li>
+                    <li class="breadcrumb-item text-dark" aria-current="page">Đăng ký</li>
                 </ol>
             </nav>
         </div>
@@ -38,38 +38,38 @@
     <!-- Page Header End -->
 
 
-    <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Đăng kí tài khoản</h4>
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Đăng ký tài khoản</h4>
                                 </div><!-- end card header -->
                                 <div class="card-body">
                                 <form action="?act=signup" method="post" >
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Name</label>
-                                    <input type="text" name="user_name" class="form-control" id="exampleInputEmail1" >
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                                        <input type="text" name="user_name" class="form-control" id="exampleInputEmail1" >
 
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                                    <input type="email" name="user_email" class="form-control" id="exampleInputEmail1" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                                        <input type="email" name="user_email" class="form-control" id="exampleInputEmail1" >
 
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Sđt</label>
-                                    <input type="number" name="user_phone" class="form-control" id="exampleInputEmail1" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Sđt</label>
+                                        <input type="number" name="user_phone" class="form-control" id="exampleInputEmail1" >
 
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Password</label>
-                                    <input type="text" name="user_password" class="form-control" id="exampleInputEmail1" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Password</label>
+                                        <input type="text" name="user_password" class="form-control" id="exampleInputEmail1" >
 
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Address</label>
-                                    <input type="text" name="user_address" class="form-control" id="exampleInputEmail1" >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Address</label>
+                                        <input type="text" name="user_address" class="form-control" id="exampleInputEmail1" >
 
-                                </div>
-                               
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
 
     <!-- Footer Start -->

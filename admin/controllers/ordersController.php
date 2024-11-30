@@ -20,5 +20,13 @@ class OrdersController{
         require_once 'views/orders/editOrder.php';
 
     }
+    public function confirmOrder() {
+        if (isset($_GET['order_id'])) {
+            $order_id = $_GET['order_id'];
+            $this->orderModel->confirmOrder($order_id);
+        } else {
+            echo "<script>alert('Không tìm thấy mã đơn hàng.'); window.location.href = '?act=list_orders';</script>";
+        }
+    }
 }
 ?>

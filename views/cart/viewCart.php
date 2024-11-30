@@ -52,48 +52,50 @@
             } else {
             ?>
                 <h2 class="mb-4">Giỏ hàng của bạn</h2>
-                <table class="table table-bordered">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Ảnh sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Tổng</th>
-                            <th>Thao tác</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($carts as $item) { ?>
-                            <tr>
-                                <td><img src="admin/uploads/img/<?= $item['product_img'] ?>" alt="Product Image" style="width: 50px; height: 50px;"></td>
-                                <td><?= $item['product_name'] ?></td>
-                                <td><?= number_format($item['product_price'], 0, ',', '.') ?> VNĐ</td>
-                                <td>
-                                    <form action="?act=update_cart" method="post" class="form-inline">
-                                        <input type="hidden" name="product_id" value="<?= $item['product_id'] ?>">
-                                        <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
-                                        <input type="number" name="product_quantity" value="<?= $item['quantity'] ?>" min="1" class="form-control mr-2">
-                                        <button type="submit" class="btn btn-primary">Cập nhật</button>
-                                    </form>
-                                </td>
-                                <td><?= number_format($item['product_price'] * $item['quantity'], 0, ',', '.') ?> VNĐ</td>
-                                <td><a href="?act=remove_from_cart&cart_id=<?= $item['cart_id'] ?>&product_id=<?= $item['product_id'] ?>" class="btn btn-danger">Xóa</a></td>
-                            </tr>
-                            <?php
-                            // Tính tổng giá trị giỏ hàng
-                            $total_price += $item['product_price'] * $item['quantity'];
-                            ?>
-                        <?php } ?>
-                    </tbody>
-                </table>
-
-                <!-- Tổng tiền -->
-                <h3 class="mt-3">Tổng tiền: <?= number_format($total_price, 0, ',', '.') ?> VNĐ</h3>
-
-                <!-- Form đặt hàng -->
                 <form action="?act=create_order" method="post" class="mt-3">
-                    <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>"> <!-- Lưu cart_id để gửi đi -->
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Chọn</th>
+                                <th>Ảnh sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($carts as $item) { ?>
+                                <tr>
+                                    <td><input type="checkbox" name="selected_products[]" value="<?= $item['product_id'] ?>"></td>
+                                    <td><img src="admin/uploads/img/<?= $item['product_img'] ?>" alt="Product Image" style="width: 50px; height: 50px;"></td>
+                                    <td><?= $item['product_name'] ?></td>
+                                    <td><?= number_format($item['product_price'], 0, ',', '.') ?> VNĐ</td>
+                                    <td>
+                                        <form action="?act=update_cart" method="post" class="form-inline">
+                                            <input type="hidden" name="product_id" value="<?= $item['product_id'] ?>">
+                                            <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
+                                            <input type="number" name="product_quantity" value="<?= $item['quantity'] ?>" min="1" class="form-control mr-2">
+                                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                        </form>
+                                    </td>
+                                    <td><?= number_format($item['product_price'] * $item['quantity'], 0, ',', '.') ?> VNĐ</td>
+                                    <td><a href="?act=remove_from_cart&cart_id=<?= $item['cart_id'] ?>&product_id=<?= $item['product_id'] ?>" class="btn btn-danger">Xóa</a></td>
+                                </tr>
+                                <?php
+                                // Tính tổng giá trị giỏ hàng
+                                $total_price += $item['product_price'] * $item['quantity'];
+                                ?>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+
+                    <!-- Tổng tiền -->
+                    <h3 class="mt-3">Tổng tiền: <?= number_format($total_price, 0, ',', '.') ?> VNĐ</h3>
+
+                    <!-- Form đặt hàng -->
+                    <input type="hidden" name="total_price" value="<?= $total_price ?>">
                     <button type="submit" class="btn btn-success">Đặt hàng</button>
                 </form>
             <?php

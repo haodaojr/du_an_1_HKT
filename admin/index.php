@@ -39,4 +39,5 @@ match ($act) {
     //orders
     'list_orders'   =>(new OrdersController())->getall(),
     'edit_order'    =>(new OrdersController())->update(),
+    'confirm_order' =>(new OrdersController())->confirmOrder(),
 };

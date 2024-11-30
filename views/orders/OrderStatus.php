@@ -76,8 +76,6 @@
                                 <td>
                                     <?php if ($order['order_status'] == 'pending') { ?>
                                         <a href="?act=cancel_order&order_id=<?= $order['order_id'] ?>" class="btn btn-danger">Hủy đơn</a>
-                                    <?php } elseif ($order['order_status'] == 'completed') { ?>
-                                        <a href="?act=confirm_order&order_id=<?= $order['order_id'] ?>" class="btn btn-success">Xác nhận</a>
                                     <?php } ?>
                                 </td>
                             </tr>
