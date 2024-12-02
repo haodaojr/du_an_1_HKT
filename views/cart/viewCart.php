@@ -77,7 +77,7 @@
                                             <input type="hidden" name="product_id" value="<?= $item['product_id'] ?>">
                                             <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
                                             <input type="number" name="product_quantity" value="<?= $item['quantity'] ?>" min="1" class="form-control mr-2">
-                                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                            <button type="submit" formaction="?act=update_cart" class="btn btn-primary">Cập nhật</button>
                                         </form>
                                     </td>
                                     <td><?= number_format($item['product_price'] * $item['quantity'], 0, ',', '.') ?> VNĐ</td>
@@ -96,7 +96,7 @@
 
                     <!-- Form đặt hàng -->
                     <input type="hidden" name="total_price" value="<?= $total_price ?>">
-                    <button type="submit" class="btn btn-success">Đặt hàng</button>
+                    <button type="submit"  class="btn btn-success">Đặt hàng</button>
                 </form>
             <?php
             }

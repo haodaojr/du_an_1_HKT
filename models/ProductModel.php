@@ -14,6 +14,16 @@ class ProductModel{
             echo "Error: " . $e->getMessage();
         }
     }
+    public function getnew() {
+        try {
+            $sql = "SELECT * FROM `product` ORDER BY `product_id` DESC LIMIT 5;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
     public function getOne($id){
         try {
             $sql = "SELECT p.*, c.product_category_name  
