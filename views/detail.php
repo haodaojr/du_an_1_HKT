@@ -130,7 +130,7 @@
                 </div>
                 <?php endforeach; ?>
             </div>
-            <?php if($check){ ?>
+            <?php if($check && !$check2){ ?>
                 <a class="btn btn-primary" href="?act=review&id=<?= $product['product_id'] ?>">Viết đánh giá</a>
             <?php } ?>
         </div>

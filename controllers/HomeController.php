@@ -11,7 +11,7 @@ class HomeController
       $this->review=new ReviewModel();
     }
     public function home() {
-      $products=$this->product_model->getAll();
+      $products=$this->product_model->getnew();
       $productThere=$this->product_model->getThere();
       require_once 'views/home.php';  
     }
@@ -71,6 +71,7 @@ class HomeController
           $product2 = $this->product_model->getcate($id);  
           $reviews = $this->review->getReviewsByProductId($id);
           $check=$this->review->checkBillDetail($_SESSION['user_id'],$id);
+          $check2=$this->review->checkReview($_SESSION['user_id'], $id);
           if (!is_array($reviews) && !is_object($reviews)) {
               $reviews = [];
           }
