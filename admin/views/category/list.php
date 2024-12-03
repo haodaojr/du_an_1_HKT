@@ -55,7 +55,6 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
-                                                            <th scope="col">Id Danh Mục</th>
                                                             <th scope="col">Tên Danh Mục</th>
                                                             <th scope="col">Ảnh Danh Mục</th>
                                                             <th>Xoa  -  Sua</th>
@@ -65,9 +64,8 @@
                                                         <?php foreach ($Allcate as $index => $product) : ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $product['product_category_id'] ?></td> 
                                                                 <td><?= $product['product_category_name'] ?></td> 
-                                                                <td><img src="./uploads/img/<?= $product['product_category_img'] ?>" height="150"  alt=""></td>
+                                                                <td><img src="./uploads/img/<?= $product['product_category_img'] ?>" width="200"  alt=""></td>
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
                                                                         <a href="?act=update_cate&product_category_id=<?= $product['product_category_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>

@@ -22,7 +22,7 @@ class ProductController {
             $categoryId = (int) $_POST['category_id'];  
             $productImg = $_FILES['product_img']['name'];  
             $tmp = $_FILES['product_img']['tmp_name'];  
-            $productPrice = (float) $_POST['product_price'];  
+            $productPrice =  $_POST['product_price'];  
             $productAmount = (int) $_POST['product_amount'];  
             $productDescription = trim($_POST['product_description']);  
     
@@ -80,7 +80,7 @@ class ProductController {
             $categoryId = (int) $_POST['category_id'];  
             $productImg = isset($_FILES['product_img2']['name']) ? $_FILES['product_img2']['name'] : '';  // Kiểm tra xem có tệp ảnh mới không
             $tmp = isset($_FILES['product_img2']['tmp_name']) ? $_FILES['product_img2']['tmp_name'] : '';  // Tên tạm thời của ảnh
-            $productPrice = (float) $_POST['product_price'];  
+            $productPrice =  $_POST['product_price'];  
             $productAmount = (int) $_POST['product_amount'];  
             $productDescription = trim($_POST['product_description']);  
     
