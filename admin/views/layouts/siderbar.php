@@ -98,6 +98,22 @@
                         </ul>
                     </div>
 
+                    <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarDanhGia" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhGia">
+                        <i style='font-size:24px' class='far'>&#xf27a;</i><span data-key="t-advance-ui">Đánh Giá</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarDanhGia">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=list_review" class="nav-link" data-key="t-sweet-alerts">
+                                    Danh sách Đánh Giá
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
                 <li class="menu-title"><i class="ri-shopping-cart-line"></i> <span data-key="t-pages">Bán hàng</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDonHang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDonHang">

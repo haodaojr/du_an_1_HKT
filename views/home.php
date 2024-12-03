@@ -12,12 +12,13 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
     </div>
     <!-- Spinner End -->
 
-    
+
     <!-- Navbar Start -->
     <?php require_once 'views/layouts/siderbar.php'; ?>
     <!-- Navbar End -->
@@ -231,7 +232,8 @@
 
 
     <!-- Video Modal Start -->
-    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-0">
                 <div class="modal-header">
@@ -241,8 +243,8 @@
                 <div class="modal-body">
                     <!-- 16:9 aspect ratio -->
                     <div class="ratio ratio-16x9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                            allow="autoplay"></iframe>
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
+                            allowscriptaccess="always" allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>
@@ -306,7 +308,8 @@
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.5s">
                 <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et
+                        sit, sed stet lorem sit clita duo justo</p>
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="img-fluid flex-shrink-0" src="assets/img/testimonial-1.jpg" alt="">
                         <div class="text-start ms-3">
@@ -316,7 +319,8 @@
                     </div>
                 </div>
                 <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et
+                        sit, sed stet lorem sit clita duo justo</p>
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="img-fluid flex-shrink-0" src="assets/img/testimonial-2.jpg" alt="">
                         <div class="text-start ms-3">
@@ -326,7 +330,8 @@
                     </div>
                 </div>
                 <div class="testimonial-item p-4 p-lg-5">
-                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                    <p class="mb-4">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et
+                        sit, sed stet lorem sit clita duo justo</p>
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="img-fluid flex-shrink-0" src="assets/img/testimonial-3.jpg" alt="">
                         <div class="text-start ms-3">
@@ -350,7 +355,9 @@
             </div>
             <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.1s">
                 <div class="col-lg-8">
-                    <p class="text-center mb-5">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
+                    <p class="text-center mb-5">Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum
+                        et lorem et sit, sed stet lorem sit clita duo justo Diam dolor diam ipsum sit. Aliqu diam amet
+                        diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo</p>
                     <div class="row g-5">
                         <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.3s">
                             <div class="btn-square mx-auto mb-3">
@@ -387,10 +394,11 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
 
 
-   
+
 </body>
 
 </html>

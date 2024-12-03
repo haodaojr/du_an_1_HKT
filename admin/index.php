@@ -8,12 +8,15 @@ require_once 'controllers/DashboardController.php';
 require_once 'controllers/ProductController.php';
 require_once 'controllers/CategoryControllers.php';
 require_once 'controllers/ordersController.php';
+require_once 'controllers/ReviewControllers.php';
+
 
 
 // Require toàn bộ file Models
 require_once 'models/ProductModel.php';
 require_once 'models/CategoryModels.php';
 require_once 'models/ordersModel.php';
+require_once 'models/ReviewModels.php';
 
 
 // Route
@@ -40,4 +43,8 @@ match ($act) {
     'list_orders'   =>(new OrdersController())->getall(),
     'edit_order'    =>(new OrdersController())->update(),
     'confirm_order' =>(new OrdersController())->confirmOrder(),
+
+    // reviews
+    'list_review'   =>(new ReviewControllers())->ReviewAll(),
+    'delete_review' => (new ReviewControllers())->delete(),
 };
