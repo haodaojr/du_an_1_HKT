@@ -1,5 +1,4 @@
 <?php
-require_once 'models/ProductModels.php';
 class HomeController
 {
     public $product_model;
