@@ -39,9 +39,11 @@
     <!-- Cart Start -->
     <div class="container-xxl contact py-5">
         <div class="container">
-            <div class="d-flex justify-content-end mb-3">
-                <a href="?act=oderstatus" class="btn btn-info">Tình trạng đơn hàng</a>
-            </div>
+        <div class="d-flex justify-content-end mb-3">
+    <a href="?act=oderstatus" class="btn">Tình trạng đơn hàng</a>
+    <a href="?act=billhistory" class="btn btn">Lịch sử mua hàng</a>
+</div>
+
             <?php
             // Khởi tạo biến $total_price
             $total_price = 0;
@@ -66,9 +68,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($carts as $item) { ?>
+                            <?php  foreach ($carts as $item) { ?>
                                 <tr>
-                                    <td><input type="checkbox" name="selected_products[]" value="<?= $item['product_id'] ?>"></td>
+                                    
+                                    <td><input type="checkbox" name="selected_products[]" value="<?= $item['cart_id'] ?>" class="product-checkbox"></td>
                                     <td><img src="admin/uploads/img/<?= $item['product_img'] ?>" alt="Product Image" style="width: 50px; height: 50px;"></td>
                                     <td><?= $item['product_name'] ?></td>
                                     <td><?= number_format($item['product_price'], 0, ',', '.') ?> VNĐ</td>
@@ -92,15 +95,55 @@
                     </table>
 
                     <!-- Tổng tiền -->
-                    <h3 class="mt-3">Tổng tiền: <?= number_format($total_price, 0, ',', '.') ?> VNĐ</h3>
+                    <h3 class="mt-3">Tổng tiền: <span id="total-price"><?= number_format($total_price, 0, ',', '.') ?> VNĐ</span></h3>
 
                     <!-- Form đặt hàng -->
-                    <input type="hidden" name="total_price" value="<?= $total_price ?>">
-                    <button type="submit"  class="btn btn-success">Đặt hàng</button>
+                    <input type="hidden" name="total_price" value="<?= $total_price ?>" id="hidden-total-price">
+                    <button type="submit" class="btn btn-success" id="submit-order">Đặt hàng</button>
                 </form>
+
             <?php
             }
             ?>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add event listener to checkboxes
+                const checkboxes = document.querySelectorAll('.product-checkbox');
+                const totalPriceElement = document.getElementById('total-price');
+                const hiddenTotalPriceInput = document.getElementById('hidden-total-price');
+                const submitOrderButton = document.getElementById('submit-order');
+
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', updateTotalPrice);
+                });
+
+                function updateTotalPrice() {
+                    let totalPrice = 0;
+
+                    checkboxes.forEach(checkbox => {
+                        if (checkbox.checked) {
+                            const row = checkbox.closest('tr');
+                            const priceCell = row.querySelector('td:nth-child(6)');
+                            const productTotal = parseInt(priceCell.innerText.replace(/[^0-9]/g, ''));
+                            totalPrice += productTotal;
+                        }
+                    });
+
+                    totalPriceElement.innerText = new Intl.NumberFormat('vi-VN').format(totalPrice) + ' VNĐ';
+                    hiddenTotalPriceInput.value = totalPrice;
+                }
+
+                // Prevent form submission if no product is selected
+                submitOrderButton.addEventListener('click', function(event) {
+                    const anyChecked = [...checkboxes].some(checkbox => checkbox.checked);
+                    if (!anyChecked) {
+                        alert('Vui lòng chọn ít nhất một sản phẩm để đặt hàng.');
+                        event.preventDefault();
+                    }
+                });
+            });
+            </script>
         </div>
     </div>
     <!-- Cart End -->

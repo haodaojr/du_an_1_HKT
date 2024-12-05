@@ -7,7 +7,7 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/ProductController.php';
 require_once 'controllers/CategoryControllers.php';
-require_once 'controllers/ordersController.php';
+require_once 'controllers/BillController.php';
 require_once 'controllers/ReviewControllers.php';
 
 
@@ -15,7 +15,7 @@ require_once 'controllers/ReviewControllers.php';
 // Require toàn bộ file Models
 require_once 'models/ProductModel.php';
 require_once 'models/CategoryModels.php';
-require_once 'models/ordersModel.php';
+require_once 'models/billModel.php';
 require_once 'models/ReviewModels.php';
 
 
@@ -40,11 +40,10 @@ match ($act) {
     'sua-san-pham'  => (new ProductController())->editProduct(),
     'xoa-san-pham'  => (new ProductController())->delete(),
     //orders
-    'list_orders'   =>(new OrdersController())->getall(),
-    'edit_order'    =>(new OrdersController())->update(),
-    'confirm_order' =>(new OrdersController())->confirmOrder(),
-
+    'list_bill'   =>(new BillController())->getall(),
+    'edit_bill'     =>(new BillController())->update(),
+    
     // reviews
     'list_review'   =>(new ReviewControllers())->ReviewAll(),
-    'delete_review' => (new ReviewControllers())->delete(),
+    'delete_review' =>(new ReviewControllers())->delete(),
 };
