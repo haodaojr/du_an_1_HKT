@@ -8,17 +8,17 @@ require_once './commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/HomeController.php';
 require_once './controllers/userController.php';
 require_once './controllers/cartController.php';
-require_once './controllers/ordersController.php';
 require_once './controllers/reviewController.php';
+require_once './controllers/billController.php';
 
 
 // Require toàn bộ file Models
 require_once './models/ProductModel.php';
 require_once './models/userModel.php';
 require_once './models/cartModel.php';
-require_once './models/ordersModel.php';
 require_once './admin/models/CategoryModels.php';
 require_once './models/reviewModel.php';
+require_once './models/billModel.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -46,13 +46,16 @@ match ($act) {
     'viewCart'          =>(new CartController())->cart(),
     'update_cart'       =>(new CartController())->updateCart(),
     'remove_from_cart'  =>(new CartController())->deleteCartItem(),
-    'create_order'      =>(new CartController())->createOrder(),
-    //orders
-    'oderstatus'        =>(new OrdersController())->orders(),
-    'cancel_order'      =>(new OrdersController())->cancelOrder(),
-    'confirm_order'     =>(new OrdersController())->confirmOrder(),
+    
     //search
     'search'            =>(new HomeController())->search(),
     'review'            =>(new ReviewController())->review(),
-    'add_review'            =>(new ReviewController())->addReview(),
+    'add_review'        =>(new ReviewController())->addReview(),
+
+    //bill
+    'create_order'      =>(new BillController())->createOrder(),
+    'addBill'           =>(new BillController())->addBill(),
+    'oderstatus'        =>(new BillController())->orderStatus(),
+    'cancel_order'      =>(new BillController())->cancelOrder(),
+    'billhistory'       =>(new BillController())->billhistory(),
 };

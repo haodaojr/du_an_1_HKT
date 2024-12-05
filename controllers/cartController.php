@@ -84,23 +84,6 @@ class CartController {
             echo "<script>window.location.href='?act=viewCart';</script>";
         }
     }
-    public function createOrder() {  
-        // Kiểm tra nếu có yêu cầu POST từ form  
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {  
-            // Kiểm tra xem cart_id có được gửi tới không  
-            if (isset($_POST['cart_id']) && !empty($_POST['cart_id'])) {  
-                $cart_id = intval($_POST['cart_id']); // Chuyển đổi sang kiểu số nguyên  
-
-                // Gọi phương thức để thêm đơn hàng  
-                $this->CartModel->addOrders($cart_id);
-            } else {  
-                echo "<script>alert('Cart ID không hợp lệ.');</script>";
-
-            }  
-        } else {  
-            echo "<script>alert('Yêu cầu không hợp lệ.');</script>";  
-        }  
-        
-    }  
+    
 }
 ?>

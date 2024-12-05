@@ -122,7 +122,7 @@
                     <div class="collapse menu-dropdown" id="sidebarDonHang">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=list_orders" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="?act=list_bill" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
                             </li>

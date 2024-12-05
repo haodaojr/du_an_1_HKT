@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Chỉnh sửa đơn hàng</title>
+    <title>Danh sách đơn hàng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -35,11 +35,11 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Chỉnh sửa đơn hàng</h4>
+                                <h4 class="mb-sm-0">Quản lý đơn hàng</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Chỉnh sửa đơn hàng</li>
+                                        <li class="breadcrumb-item active">Đơn hàng</li>
                                     </ol>
                                 </div>
                             </div>
@@ -51,40 +51,53 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Chỉnh sửa đơn hàng</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
                                     </div><!-- end card header -->
                                     <div class="card-body">
-                                        <form action="?act=edit_order" method="POST">
-                                            <input type="hidden" name="order_id" value="<?= $order['order_id'] ?>">
-                                            <div class="mb-3">
-                                                <label for="product_name" class="form-label">Tên sản phẩm</label>
-                                                <input type="text" class="form-control" id="product_name" name="product_name" value="<?= $order['product_name'] ?>" required>
+                                        <div class="live-preview">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-nowrap align-middle mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">STT</th>
+                                                            <th scope="col">Mã đơn hàng</th>
+                                                            <th scope="col">Trạng thái đơn hàng</th>
+                                                            <th scope="col">Phương thức thanh toán</th>
+                                                            <th scope="col">Trạng thái thanh toán</th>
+                                                            <th scope="col">Tên người dùng</th>
+                                                            <th scope="col">Địa chỉ</th>
+                                                            <th scope="col">Số điện thoại</th>
+                                                            <th scope="col">Tổng tiền</th>
+                                                            <th scope="col">Hành động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach ($bills as $index => $bill) : ?>
+                                                            <tr>
+                                                                <td class="fw-medium"><?= $index + 1 ?></td>
+                                                                <td><?= $bill['bill_id'] ?></td>
+                                                                <td><?= $bill['bill_status'] ?></td>
+                                                                <td><?= $bill['payment_type'] ?></td>
+                                                                <td><?= $bill['payment_status'] ?></td>
+                                                                <td><?= $bill['user_name'] ?></td>
+                                                                <td><?= $bill['user_address'] ?></td>
+                                                                <td><?= $bill['user_phone'] ?></td>
+                                                                <td><?= number_format($bill['total'], 0, ',', '.') ?> VNĐ</td>
+                                                                <td>
+                                                                <?php if ($bill['payment_status'] == 'Đã thanh toán') { ?>
+                                                                        <span>Đã thanh toán</span>
+                                                                    <?php }elseif($bill['bill_status'] == 'Hủy đơn'){ ?>
+                                                                        <span>Đã hủy đơn</span>
+                                                                        <?php }else { ?>
+                                                                        <a href="?act=edit_bill&bill_id=<?= $bill['bill_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                                                    <?php } ?>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach ?>
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="product_price" class="form-label">Giá</label>
-                                                <input type="number" class="form-control" id="product_price" name="product_price" value="<?= $order['product_price'] ?>" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="quantity" class="form-label">Số lượng</label>
-                                                <input type="number" class="form-control" id="quantity" name="quantity" value="<?= $order['quantity'] ?>" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="order_status" class="form-label">Trạng thái đơn hàng</label>
-                                                <select class="form-control" id="order_status" name="order_status" required>
-                                                    <option value="pending" <?= $order['order_status'] == 'pending' ? 'selected' : '' ?>>Pending</option>
-                                                    <option value="processing" <?= $order['order_status'] == 'processing' ? 'selected' : '' ?>>Processing</option>
-                                                    <option value="shipped" <?= $order['order_status'] == 'shipped' ? 'selected' : '' ?>>Shipped</option>
-                                                    <option value="delivered" <?= $order['order_status'] == 'delivered' ? 'selected' : '' ?>>Delivered</option>
-                                                    <option value="completed" <?= $order['order_status'] == 'completed' ? 'selected' : '' ?>>Completed</option>
-                                                </select>
-
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="payment_type" class="form-label">Phương thức thanh toán</label>
-                                                <input type="text" class="form-control" id="payment_type" name="payment_type" value="<?= $order['payment_type'] ?>" required>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Cập nhật</button>
-                                        </form>
+                                        </div>
                                     </div><!-- end card-body -->
                                 </div><!-- end card -->
                             </div> <!-- end .h-100-->
