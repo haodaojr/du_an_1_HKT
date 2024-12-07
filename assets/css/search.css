@@ -1,0 +1,99 @@
+/* Slider Container */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+/* Slider Track */
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Product Item */
+.product-item {
+    text-decoration: none;
+    color: inherit;
+    flex: 0 0 calc(33.333% - 20px); /* 3 sản phẩm mỗi dòng */
+    margin: 0 10px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+}
+
+/* Product Frame */
+.product-frame {
+    background: #fff;
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-frame img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Product Content */
+.product-content {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.product-content h4 {
+    color:green;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-content p {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.product-content button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-content button:hover {
+    background-color: #218838;
+}
+
+/* Navigation Buttons */
+.slider-controls {
+    margin-top: 20px; /* Space above buttons */
+}
+
+.slider-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px; /* Space between buttons */
+}
