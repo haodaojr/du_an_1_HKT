@@ -10,6 +10,7 @@ require_once './controllers/userController.php';
 require_once './controllers/cartController.php';
 require_once './controllers/reviewController.php';
 require_once './controllers/billController.php';
+require_once './controllers/SearchControllers.php';
 
 
 // Require toàn bộ file Models
@@ -19,6 +20,7 @@ require_once './models/cartModel.php';
 require_once './admin/models/CategoryModels.php';
 require_once './models/reviewModel.php';
 require_once './models/billModel.php';
+require_once './models/SearchModels.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -58,4 +60,6 @@ match ($act) {
     'oderstatus'        =>(new BillController())->orderStatus(),
     'cancel_order'      =>(new BillController())->cancelOrder(),
     'billhistory'       =>(new BillController())->billhistory(),
+    //Search-Product
+    'search_product'    =>(new SearchControllers())->search_product(),
 };

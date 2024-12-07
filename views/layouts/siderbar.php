@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
                     <a href="?act=/" class="nav-item nav-link" id="home" onclick="setActivePage('home')">Trang chủ</a>
-                    <a href="?act=about" class="nav-item nav-link" id="about" onclick="setActivePage('about')">Giới thiệu</a>
+                    <a href="?act=about" class="naav-item nav-link" id="about" onclick="setActivePage('about')">Giới thiệu</a>
                     <a href="?act=product" class="nav-item nav-link" id="product" onclick="setActivePage('product')">Sản phẩm</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Trang</a>
@@ -43,7 +43,7 @@
                     <?php } ?>
                 </div>
                 <div class="border-start ps-4 d-none d-lg-block">
-                    <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
+                <a href="?act=search_product" class="btn btn-sm p-0"><i class="fa fa-search"></i></a>
                 </div>
                 <!-- Cart Icon -->
                 <div class="border-start ps-4 d-none d-lg-block">
