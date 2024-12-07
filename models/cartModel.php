@@ -122,7 +122,6 @@ class CartModel {
             // Commit transaction
             $this->conn->commit();
 
-            echo "<script>alert('Sản phẩm đã được xóa khỏi giỏ hàng.');</script>";
         } catch (PDOException $e) {
             // Rollback transaction nếu có lỗi
             $this->conn->rollBack();

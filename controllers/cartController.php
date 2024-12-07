@@ -66,8 +66,6 @@ class CartController {
 
             $this->CartModel->updateQuantity($cart_id, $quantity, $product_id);
 
-            // Redirect hoặc thông báo thành công
-            // echo "<script>alert('Giỏ hàng đã được cập nhật.');</script>";
             echo "<script>window.location.href='?act=viewCart';</script>";
         }
     }
