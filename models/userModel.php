@@ -23,17 +23,29 @@
         }
 
         public function dangnhap($email, $password) {
-            $sql = "SELECT * FROM user WHERE user_email = :email";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':email', $email);
-            $stmt->execute();
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($user && password_verify($password, $user['user_password'])) {
-                return $user;
+            try {
+                $sql = "SELECT * FROM user WHERE user_email = :email";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(':email', $email);
+                $stmt->execute();
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+                if ($user) {
+                    if (password_verify($password, $user['user_password'])) {
+                        return $user;
+                    } else {
+                        echo "Mật khẩu không đúng.";
+                    }
+                } else {
+                    echo "Email không tồn tại.";
+                }
+                return false;
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                return false;
             }
-            return false;
         }
+        
 
         public function checkEmailExists($email) {
             $sql = "SELECT * FROM user WHERE user_email = :email";
