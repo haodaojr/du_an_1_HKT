@@ -1,12 +1,15 @@
-<?php 
-class billModel {
+<?php
+class billModel
+{
     public $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = connectDB();
     }
 
-    public function getBills() {
+    public function getBills()
+    {
         try {
             $sql = "SELECT bill_id, bill_status, payment_type, payment_status, user_id, user_name, user_address, user_phone, total 
                     FROM bill 
@@ -19,7 +22,8 @@ class billModel {
         }
     }
 
-    public function getBillById($bill_id) {
+    public function getBillById($bill_id)
+    {
         try {
             $sql = "SELECT * FROM `bill` WHERE `bill_id` = :bill_id";
             $stmt = $this->conn->prepare($sql);
@@ -31,7 +35,8 @@ class billModel {
         }
     }
 
-    public function updateBillStatus($bill_status, $bill_id, $payment_status) {
+    public function updateBillStatus($bill_status, $bill_id, $payment_status)
+    {
         try {
             $sql = "UPDATE `bill` SET `bill_status` = :bill_status, `payment_status` = :payment_status WHERE `bill_id` = :bill_id";
             $stmt = $this->conn->prepare($sql);
@@ -44,7 +49,8 @@ class billModel {
         }
     }
 
-    public function updateProductQuantities($bill_id) {
+    public function updateProductQuantities($bill_id)
+    {
         try {
             $sql = "SELECT product_id, quantity FROM bill_detail WHERE bill_id = :bill_id";
             $stmt = $this->conn->prepare($sql);
@@ -63,5 +69,16 @@ class billModel {
             echo "Error: " . $e->getMessage();
         }
     }
+    public function getBillDetails($bill_id)
+    {
+        try {
+            $sql = "SELECT bd.*, p.product_name FROM bill_detail bd JOIN product p ON bd.product_id = p.product_id WHERE bd.bill_id = :bill_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':bill_id', $bill_id, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }
-?>

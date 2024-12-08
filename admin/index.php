@@ -43,15 +43,16 @@ match ($act) {
     'them-san-pham' => (new ProductController())->addProduct(),
     'sua-san-pham'  => (new ProductController())->editProduct(),
     'xoa-san-pham'  => (new ProductController())->delete(),
-    //orders
-    'list_bill'   =>(new BillController())->getall(),
+    //bill
+    'list_bill'     =>(new BillController())->getall(),
     'edit_bill'     =>(new BillController())->update(),
+    'detailbill'    =>(new BillController())->showBillDetails(),
     
     // reviews
     'list_review'   =>(new ReviewControllers())->ReviewAll(),
     'delete_review' =>(new ReviewControllers())->delete(),
 
      //user
-     'list_user' => (new UserController())->UserAll(),
-     'edit_user' => (new UserController())->editUser(),
+     'list_user'    => (new UserController())->UserAll(),
+     'edit_user'    => (new UserController())->editUser(),
 };

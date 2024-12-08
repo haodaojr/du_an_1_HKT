@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Danh sách đơn hàng</title>
+    <title>Chi tiết đơn hàng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -35,7 +35,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý đơn hàng</h4>
+                                <h4 class="mb-sm-0">Chi tiết đơn hàng</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
@@ -51,7 +51,7 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách đơn hàng</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Chi tiết đơn hàng</h4>
                                     </div><!-- end card header -->
                                     <div class="card-body">
                                         <div class="live-preview">
@@ -60,39 +60,20 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
-                                                            <th scope="col">Mã đơn hàng</th>
-                                                            <th scope="col">Trạng thái đơn hàng</th>
-                                                            <th scope="col">Phương thức thanh toán</th>
-                                                            <th scope="col">Trạng thái thanh toán</th>
-                                                            <th scope="col">Tên người dùng</th>
-                                                            <th scope="col">Địa chỉ</th>
-                                                            <th scope="col">Số điện thoại</th>
-                                                            <th scope="col">Tổng tiền</th>
-                                                            <th scope="col">Hành động</th>
+                                                            <th scope="col">Tên sản phẩm</th>
+                                                            <th scope="col">Số lượng</th>
+                                                            <th scope="col">Giá</th>
+                                                            <th scope="col">Thành tiền</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($bills as $index => $bill) : ?>
+                                                        <?php foreach ($bill_details as $index => $detail) : ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $bill['bill_id'] ?></td>
-                                                                <td><?= $bill['bill_status'] ?></td>
-                                                                <td><?= $bill['payment_type'] ?></td>
-                                                                <td><?= $bill['payment_status'] ?></td>
-                                                                <td><?= $bill['user_name'] ?></td>
-                                                                <td><?= $bill['user_address'] ?></td>
-                                                                <td><?= $bill['user_phone'] ?></td>
-                                                                <td><?= number_format($bill['total'], 0, ',', '.') ?> VNĐ</td>
-                                                                <td>
-                                                                <?php if ($bill['payment_status'] == 'Đã thanh toán') { ?>
-                                                                        <span>Đã thanh toán</span>
-                                                                    <?php }elseif($bill['bill_status'] == 'Hủy đơn'){ ?>
-                                                                        <span>Đã hủy đơn</span>
-                                                                        <?php }else { ?>
-                                                                        <a href="?act=edit_bill&bill_id=<?= $bill['bill_id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
-                                                                    <?php } ?>
-                                                                    <a href="?act=detailbill&bill_id=<?= $bill['bill_id'] ?>">Chi tiết đơn hàng</a>
-                                                                </td>
+                                                                <td><?= $detail['product_name'] ?></td>
+                                                                <td><?= $detail['quantity'] ?></td>
+                                                                <td><?= number_format($detail['product_price'], 0, ',', '.') ?> VNĐ</td>
+                                                                <td><?= number_format($detail['quantity'] * $detail['product_price'],0,',','.') ?> VNĐ</td>
                                                             </tr>
                                                         <?php endforeach ?>
                                                     </tbody>

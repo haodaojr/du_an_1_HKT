@@ -52,7 +52,7 @@
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
                     <a class="nav-link menu-link" href="http://localhost/du_an_1_HKT/">
-                        <i class="ri-user-line"></i> <span data-key="t-dashboards">Quay lại trang người dùng</span>
+                        <i class="ri-user-line"></i> <span data-key="t-dashboards">Trở về trang user</span>
                     </a>
                 </li>
 
@@ -90,12 +90,12 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarBinhLuan" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarBinhLuan">
-                        <i class="ri-comments-line"></i> <span data-key="t-advance-ui">Bình Luận</span>
+                    <i class="ri-star-line"></i> <span data-key="t-advance-ui">Đánh giá</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarBinhLuan">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=list_review" class="nav-link">Danh sách bình luận</a>
+                                <a href="?act=list_review" class="nav-link">Danh sách đánh giá</a>
                             </li>
                         </ul>
                     </div>
@@ -122,7 +122,7 @@
                     <div class="collapse menu-dropdown" id="sidebarDonHang">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=list_orders" class="nav-link">Danh sách</a>
+                                <a href="?act=list_bill" class="nav-link">Danh sách</a>
                             </li>
                         </ul>
                     </div>
