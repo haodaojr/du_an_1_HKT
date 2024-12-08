@@ -36,42 +36,37 @@
         </div>
     </div>
     <!-- Page Header End -->
+    <div class="card">
+        <div class="card-header align-items-center d-flex">
+            <h4 class="card-title mb-0 flex-grow-1">Đăng ký tài khoản</h4>
+        </div>
+        <div class="card-body">
+            <form action="?act=signup" method="post">
+                <div class="mb-3">
+                    <label for="user_name" class="form-label">Tên</label>
+                    <input type="text" name="user_name" class="form-control" id="user_name">
+                </div>
+                <div class="mb-3">
+                    <label for="user_email" class="form-label">Email</label>
+                    <input type="email" name="user_email" class="form-control" id="user_email">
+                </div>
+                <div class="mb-3">
+                    <label for="user_phone" class="form-label">Số điện thoại</label>
+                    <input type="tel" name="user_phone" class="form-control" id="user_phone" pattern="[0-9]{10,}">
+                </div>
+                <div class="mb-3">
+                    <label for="user_password" class="form-label">Mật khẩu</label>
+                    <input type="password" name="user_password" class="form-control" id="user_password" minlength="6">
+                </div>
+                <div class="mb-3">
+                    <label for="user_address" class="form-label">Địa chỉ</label>
+                    <input type="text" name="user_address" class="form-control" id="user_address">
+                </div>
 
-
-                                <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Đăng ký tài khoản</h4>
-                                </div><!-- end card header -->
-                                <div class="card-body">
-                                <form action="?act=signup" method="post" >
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Name</label>
-                                        <input type="text" name="user_name" class="form-control" id="exampleInputEmail1" >
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                                        <input type="email" name="user_email" class="form-control" id="exampleInputEmail1" >
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Sđt</label>
-                                        <input type="number" name="user_phone" class="form-control" id="exampleInputEmail1" >
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Password</label>
-                                        <input type="text" name="user_password" class="form-control" id="exampleInputEmail1" >
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Address</label>
-                                        <input type="text" name="user_address" class="form-control" id="exampleInputEmail1" >
-
-                                    </div>
-                                
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
-
+                <button type="submit" class="btn btn-primary">Đăng ký</button>
+            </form>
+        </div>
+    </div>
     <!-- Footer Start -->
     <?php require_once 'views/layouts/footer.php'; ?>
     <!-- Footer End -->

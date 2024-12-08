@@ -9,6 +9,8 @@ require_once 'controllers/ProductController.php';
 require_once 'controllers/CategoryControllers.php';
 require_once 'controllers/BillController.php';
 require_once 'controllers/ReviewControllers.php';
+require_once 'controllers/UserControllers.php';
+
 
 
 
@@ -17,6 +19,8 @@ require_once 'models/ProductModel.php';
 require_once 'models/CategoryModels.php';
 require_once 'models/billModel.php';
 require_once 'models/ReviewModels.php';
+require_once 'models/UserModels.php';
+
 
 
 // Route
@@ -46,4 +50,8 @@ match ($act) {
     // reviews
     'list_review'   =>(new ReviewControllers())->ReviewAll(),
     'delete_review' =>(new ReviewControllers())->delete(),
+
+     //user
+     'list_user' => (new UserController())->UserAll(),
+     'edit_user' => (new UserController())->editUser(),
 };
