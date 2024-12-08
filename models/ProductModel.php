@@ -16,10 +16,16 @@ class ProductModel{
     }
     public function getnew() {
         try {
-            $sql = "SELECT * FROM `product` ORDER BY `product_id` DESC LIMIT 5;";
+            $sql = "
+                SELECT p.*, COUNT(bd.product_id) AS sold_count 
+                FROM product p
+                INNER JOIN bill_detail bd ON p.product_id = bd.product_id
+                GROUP BY p.product_id
+                HAVING COUNT(bd.product_id) >= 2
+            ";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            return $stmt->fetchAll();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
