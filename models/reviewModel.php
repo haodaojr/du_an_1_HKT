@@ -50,7 +50,7 @@ class ReviewModel {
             $sql = "SELECT COUNT(*) 
                     FROM `bill` AS b 
                     JOIN `bill_detail` AS bd ON b.bill_id = bd.bill_id 
-                    WHERE b.user_id = :user_id AND bd.product_id = :product_id";
+                    WHERE b.user_id = :user_id AND bd.product_id = :product_id AND bill_status = 'Đã thanh toán'";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
@@ -63,7 +63,7 @@ class ReviewModel {
 
     public function checkReview($user_id, $product_id) {
         try {
-            $sql = "SELECT COUNT(*) FROM `review` WHERE user_id = :user_id AND product_id = :product_id";
+            $sql = "SELECT COUNT(*) FROM `review` WHERE user_id = :user_id AND product_id = :product_id  ";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
