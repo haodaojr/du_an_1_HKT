@@ -42,7 +42,6 @@ match ($act) {
     'signup'            =>(new userController())->insert2(),
     'login'             =>(new userController())->dangnhap(),
     'logout'            =>(new userController())->logout(),
-    'forgot_password'   =>(new userController())->forgot_password(),
 
     //cart
     'add_to_cart'       =>(new CartController())->addtocart(),

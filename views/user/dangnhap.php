@@ -36,30 +36,35 @@
         </div>
     </div>
     <!-- Page Header End -->
+
+
     <div class="h-100">
-        <div class="card">
-            <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Đăng Nhập</h4>
-            </div>
-            <div class="card-body">
-                <form action="?act=login" method="post">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="text" name="user_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
-                        <input type="password" name="user_password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Ghi nhớ đăng nhập</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Đăng Nhập</button>
-                    <a href="?act=forgot_password" class="btn btn-link">Quên mật khẩu?</a>
-                </form>
-            </div>
-        </div>
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Đăng nhập</h4>
+                                </div><!-- end card header -->
+                                <div class="card-body">
+                                <form action="?act=login" method="post">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                                        <input type="text"name="user_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                                        <input type="password" name="user_password" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div><!-- end card-body -->
+
+                            </div><!-- end card -->
+
+                            </div> <!-- end .h-100-->
+
 
     <!-- Footer Start -->
     <?php require_once 'views/layouts/footer.php'; ?>
